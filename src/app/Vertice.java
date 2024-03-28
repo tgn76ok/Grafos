@@ -1,29 +1,42 @@
 package app;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+
 public class Vertice {
+    @Setter
+    @Getter
     private String nome;
-    private List<Vertice> adjacencias;
+    @Setter
+    @Getter
+    private List<Vertice> indegree;
+    @Setter
+    @Getter
+    private List<Vertice> outdegree;
 
     public Vertice(String nome) {
         this.nome = nome;
-        adjacencias = new ArrayList<>();
+        this.outdegree = new ArrayList<>();
+        this.indegree = new ArrayList<>();
+
     }
 
+
     public int getGrau() {
-        return adjacencias.size();
+        return outdegree.size() + indegree.size() ;
+    }
+    @Override
+    public String toString() {
+        return "\nVertice{" +
+                "nome='" + nome + '\'' +
+                ", indegree=" + indegree.size() +
+                ", outdegree=" + outdegree.size() +
+                "}";
+
     }
 }

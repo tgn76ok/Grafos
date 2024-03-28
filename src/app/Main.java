@@ -8,14 +8,20 @@ public class Main {
         Vertice v2 = new Vertice ("2");
         g.adicionarVertice(v2);
 
+        Vertice v3 = new Vertice ("3");
+        g.adicionarVertice(v3);
+
+
+
         Aresta a1 = new Aresta("a1", v1, v2);
         g.adicionarAresta(a1);
         Aresta a2 = new Aresta ("a2", v2, v1);
         g.adicionarAresta(a2);
 
-        g.verificandoAdjacencias();
 
-        System.out.println(g);
+
+        g.verificandoAdjacencias();
+        g.matrizIncidencia();
 
     }
 }
